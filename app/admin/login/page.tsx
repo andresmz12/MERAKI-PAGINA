@@ -44,12 +44,15 @@ export default function AdminLoginPage() {
       <div className="relative z-10 w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-10">
-          <div className="inline-flex flex-col items-center">
-            <div className="w-16 h-16 border-2 border-[#C9A84C] flex items-center justify-center mb-4">
-              <span className="font-display text-[#C9A84C] font-bold text-3xl">M</span>
-            </div>
-            <h1 className="font-display text-white text-3xl font-bold tracking-widest">MERAKI</h1>
-            <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.5em] uppercase mt-1">
+          <div className="inline-flex flex-col items-center gap-3">
+            <img
+              src="/images/logo-meraki.png"
+              alt="Meraki Real Estate"
+              width={150}
+              height={65}
+              className="object-contain brightness-0 invert"
+            />
+            <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.5em] uppercase">
               Panel Administrativo
             </p>
           </div>
