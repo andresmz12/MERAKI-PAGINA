@@ -60,7 +60,7 @@ export default function AdminLoginPage() {
 
         {/* Card */}
         <div className="bg-white/5 backdrop-blur border border-white/10 p-8">
-          <h2 className="font-display text-white text-xl font-semibold mb-6">Iniciar sesión</h2>
+          <h2 className="font-sans text-white text-xl font-semibold mb-6">Iniciar sesión</h2>
 
           {error && (
             <div className="bg-red-500/10 border border-red-500/30 text-red-400 font-sans text-sm px-4 py-3 mb-6">

@@ -36,7 +36,7 @@ export default function AdminSidebar() {
       <div className="px-4 py-6 border-b border-white/10">
         <Link href="/admin/dashboard" className="flex flex-col items-center gap-2">
           {logoError ? (
-            <span className="font-display text-[#C9A84C] text-2xl font-bold tracking-widest">MERAKI</span>
+            <span className="font-sans text-[#C9A84C] text-2xl font-bold tracking-widest">MERAKI</span>
           ) : (
             <img
               src="/images/logo-meraki.png"

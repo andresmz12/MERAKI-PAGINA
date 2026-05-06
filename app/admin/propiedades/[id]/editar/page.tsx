@@ -56,7 +56,7 @@ export default async function EditarPropiedadPage({ params }: Props) {
           </Link>
           <div>
             <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.4em] uppercase mb-0.5">Panel Administrativo</p>
-            <h1 className="font-display text-3xl text-[#0A0A0A] font-light tracking-wide line-clamp-1">{propiedad.titulo}</h1>
+            <h1 className="font-sans text-3xl text-[#0A0A0A] font-light tracking-wide line-clamp-1">{propiedad.titulo}</h1>
           </div>
         </header>
 

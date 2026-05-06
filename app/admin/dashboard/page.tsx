@@ -48,7 +48,7 @@ export default async function DashboardPage() {
         <header className="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-10 shadow-sm">
           <div>
             <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.4em] uppercase mb-0.5">Panel Administrativo</p>
-            <h1 className="font-display text-[#0A0A0A] text-3xl font-light tracking-wide">Dashboard</h1>
+            <h1 className="font-sans text-[#0A0A0A] text-2xl font-semibold tracking-wide">Dashboard</h1>
           </div>
           <Link
             href="/admin/propiedades/nueva"
@@ -70,7 +70,7 @@ export default async function DashboardPage() {
                   {stat.icon}
                 </div>
                 <div>
-                  <div className="font-display text-[#0A0A0A] text-3xl font-semibold leading-none">{stat.value}</div>
+                  <div className="font-sans text-[#0A0A0A] text-3xl font-semibold leading-none">{stat.value}</div>
                   <div className="font-sans text-[#8B8B9E] text-xs mt-1 tracking-wider uppercase">{stat.label}</div>
                 </div>
               </div>
@@ -80,13 +80,13 @@ export default async function DashboardPage() {
           {/* Table */}
           <div className="bg-white border border-gray-100 shadow-sm overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-              <h2 className="font-display text-[#0A0A0A] text-lg font-semibold">Todas las propiedades</h2>
+              <h2 className="font-sans text-[#0A0A0A] text-lg font-semibold">Todas las propiedades</h2>
               <span className="font-sans text-[#8B8B9E] text-sm">{total} registros</span>
             </div>
 
             {propiedades.length === 0 ? (
               <div className="text-center py-20">
-                <div className="font-display text-[#C9A84C] text-6xl mb-4 opacity-30">M</div>
+                <div className="font-sans text-[#C9A84C] text-6xl mb-4 opacity-30">M</div>
                 <p className="font-sans italic text-[#8B8B9E] text-sm mb-6">No hay propiedades aún</p>
                 <Link
                   href="/admin/propiedades/nueva"
@@ -122,7 +122,7 @@ export default async function DashboardPage() {
                                   sizes="56px"
                                 />
                               ) : (
-                                <div className="w-full h-full flex items-center justify-center font-display text-[#C9A84C] text-xl font-bold opacity-30">M</div>
+                                <div className="w-full h-full flex items-center justify-center font-sans text-[#C9A84C] text-xl font-bold opacity-30">M</div>
                               )}
                             </div>
                             <div>
@@ -143,7 +143,7 @@ export default async function DashboardPage() {
                           </div>
                         </td>
                         <td className="px-6 py-4">
-                          <div className="font-display text-[#0A0A0A] font-semibold">
+                          <div className="font-sans text-[#0A0A0A] font-semibold">
                             {formatPrice(prop.precio, prop.moneda)}
                           </div>
                         </td>
