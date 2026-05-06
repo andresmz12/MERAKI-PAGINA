@@ -63,15 +63,15 @@ export default function Hero() {
             name="operacion"
             className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#C9A84C] transition-colors"
           >
-            <option value="">Operación</option>
-            <option value="venta">Venta</option>
-            <option value="arriendo">Arriendo</option>
+            <option value="">¿Qué buscas?</option>
+            <option value="venta">Comprar</option>
+            <option value="arriendo">Arrendar</option>
           </select>
           <select
             name="tipo"
             className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#C9A84C] transition-colors"
           >
-            <option value="">Tipo de propiedad</option>
+            <option value="">Tipo</option>
             {TIPOS.map((t) => (
               <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
             ))}

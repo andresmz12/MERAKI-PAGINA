@@ -13,13 +13,13 @@ export default async function NuevaPropiedadPage() {
       <AdminSidebar />
       <div className="flex-1 ml-64">
         <header className="bg-white border-b border-gray-200 px-8 py-5 flex items-center gap-4 sticky top-0 z-10">
-          <Link href="/admin/dashboard" className="text-gray-400 hover:text-[#1C3D2E] transition-colors">
+          <Link href="/admin/dashboard" className="text-gray-400 hover:text-[#C9A84C] transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
           </Link>
           <div>
-            <h1 className="font-display text-2xl text-[#1C3D2E] font-bold">Nueva Propiedad</h1>
+            <h1 className="font-display text-2xl text-[#0A0A0A] font-bold">Nueva Propiedad</h1>
             <p className="text-gray-500 text-sm">Completa los datos para agregar una propiedad</p>
           </div>
         </header>

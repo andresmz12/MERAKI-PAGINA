@@ -112,7 +112,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
     }
   }
 
-  const inputClass = "w-full border border-gray-200 rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-[#1C3D2E] focus:ring-1 focus:ring-[#1C3D2E] bg-white transition-colors"
+  const inputClass = "w-full border border-gray-200 rounded-sm px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A84C] focus:ring-1 focus:ring-[#C9A84C] bg-white transition-colors"
   const labelClass = "block text-sm font-medium text-gray-700 mb-1.5"
   const selectClass = inputClass
 
@@ -126,7 +126,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
 
       {/* Basic info */}
       <div className="bg-white rounded-sm border border-gray-200 p-6">
-        <h2 className="text-base font-semibold text-[#1C3D2E] mb-5 pb-3 border-b border-gray-100">
+        <h2 className="text-base font-semibold text-[#0A0A0A] mb-5 pb-3 border-b border-gray-100">
           Información básica
         </h2>
         <div className="space-y-5">
@@ -166,7 +166,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
 
       {/* Price */}
       <div className="bg-white rounded-sm border border-gray-200 p-6">
-        <h2 className="text-base font-semibold text-[#1C3D2E] mb-5 pb-3 border-b border-gray-100">Precio</h2>
+        <h2 className="text-base font-semibold text-[#0A0A0A] mb-5 pb-3 border-b border-gray-100">Precio</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className={labelClass}>Precio *</label>
@@ -184,7 +184,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
 
       {/* Location */}
       <div className="bg-white rounded-sm border border-gray-200 p-6">
-        <h2 className="text-base font-semibold text-[#1C3D2E] mb-5 pb-3 border-b border-gray-100">Ubicación</h2>
+        <h2 className="text-base font-semibold text-[#0A0A0A] mb-5 pb-3 border-b border-gray-100">Ubicación</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className={labelClass}>Ciudad *</label>
@@ -205,7 +205,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
 
       {/* Details */}
       <div className="bg-white rounded-sm border border-gray-200 p-6">
-        <h2 className="text-base font-semibold text-[#1C3D2E] mb-5 pb-3 border-b border-gray-100">Detalles</h2>
+        <h2 className="text-base font-semibold text-[#0A0A0A] mb-5 pb-3 border-b border-gray-100">Detalles</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           <div>
             <label className={labelClass}>Área (m²)</label>
@@ -254,7 +254,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
                 onChange={handleChange}
                 className="sr-only"
               />
-              <div className={`w-12 h-6 rounded-full transition-colors duration-200 ${formData.destacada ? 'bg-[#1C3D2E]' : 'bg-gray-200'}`} />
+              <div className={`w-12 h-6 rounded-full transition-colors duration-200 ${formData.destacada ? 'bg-[#C9A84C]' : 'bg-gray-200'}`} />
               <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-200 ${formData.destacada ? 'translate-x-7' : 'translate-x-1'}`} />
             </div>
             <span className="text-sm font-medium text-gray-700">Marcar como propiedad destacada</span>
@@ -264,7 +264,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
 
       {/* Images */}
       <div className="bg-white rounded-sm border border-gray-200 p-6">
-        <h2 className="text-base font-semibold text-[#1C3D2E] mb-2 pb-3 border-b border-gray-100">
+        <h2 className="text-base font-semibold text-[#0A0A0A] mb-2 pb-3 border-b border-gray-100">
           Imágenes ({formData.imagenes.length}/10)
         </h2>
         <p className="text-xs text-gray-400 mb-4">La primera imagen será la imagen principal. Puedes reordenar usando las flechas.</p>
@@ -286,7 +286,7 @@ export default function PropertyForm({ initialData, mode }: PropertyFormProps) {
         <button
           type="submit"
           disabled={saving}
-          className="px-8 py-2.5 bg-[#1C3D2E] text-white text-sm font-semibold rounded-sm hover:bg-[#C9A96E] hover:text-[#0F1F18] transition-colors duration-200 disabled:opacity-50"
+          className="font-sans px-8 py-2.5 bg-[#0A0A0A] text-white text-sm font-bold tracking-widest uppercase hover:bg-[#C9A84C] hover:text-[#0A0A0A] transition-colors duration-200 disabled:opacity-50"
         >
           {saving ? 'Guardando...' : mode === 'create' ? 'Crear propiedad' : 'Guardar cambios'}
         </button>
