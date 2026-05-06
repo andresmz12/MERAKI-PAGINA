@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
@@ -41,7 +40,7 @@ export default function Navbar() {
               <span className="font-sans text-white/70 text-[9px] tracking-[0.35em] uppercase leading-none mt-0.5">Real Estate</span>
             </span>
           ) : (
-            <Image
+            <img
               src="/logo-meraki.png"
               alt="Meraki Real Estate"
               width={120}

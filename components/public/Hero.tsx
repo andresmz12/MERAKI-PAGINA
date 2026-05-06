@@ -5,21 +5,17 @@ export default function Hero() {
   return (
     <section
       className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #1a1408 40%, #2C2210 70%, #0A0A0A 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #1C1508 35%, #2A1E0A 65%, #0A0A0A 100%)' }}
     >
-      {/* Video background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
-      >
-        <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-      </video>
-
-      {/* Overlay */}
-      <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.5)', zIndex: 1 }} />
+      {/* Dot pattern */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #C9A84C 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          opacity: 0.05,
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex-1 flex flex-col items-center justify-center">
