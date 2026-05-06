@@ -17,13 +17,29 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'Meraki Real Estate | Propiedades de Lujo en Colombia',
-  description: 'Encuentra tu propiedad ideal en Colombia. Compra, venta e inversión en propiedades con asesoría experta en Medellín y más ciudades.',
-  keywords: 'propiedades, inmobiliaria, Medellín, Colombia, apartamentos, casas, venta, arriendo',
+  metadataBase: new URL(process.env.NEXTAUTH_URL || 'https://meraki-pagina-production.up.railway.app'),
+  title: {
+    default: 'Meraki Real Estate | Propiedades de Lujo en Colombia',
+    template: '%s | Meraki Real Estate',
+  },
+  description: 'Encuentra tu propiedad ideal en Colombia. Compra, venta e inversión en propiedades con asesoría experta en Medellín, Bogotá, Cali y más ciudades.',
+  keywords: ['propiedades', 'inmobiliaria', 'Medellín', 'Colombia', 'apartamentos', 'casas', 'venta', 'arriendo', 'lujo', 'real estate'],
+  authors: [{ name: 'Meraki Real Estate' }],
   openGraph: {
-    title: 'Meraki Real Estate',
-    description: 'Compra, venta e inversión en propiedades con asesoría experta en Colombia',
+    title: 'Meraki Real Estate | Propiedades de Lujo en Colombia',
+    description: 'Compra, venta e inversión en propiedades con asesoría experta en Colombia.',
     type: 'website',
+    locale: 'es_CO',
+    siteName: 'Meraki Real Estate',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Meraki Real Estate | Propiedades de Lujo en Colombia',
+    description: 'Compra, venta e inversión en propiedades con asesoría experta en Colombia.',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 

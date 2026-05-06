@@ -2,8 +2,18 @@ import { prisma } from '@/lib/prisma'
 import PropertyCard from '@/components/public/PropertyCard'
 import WhatsAppButton from '@/components/public/WhatsAppButton'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Propiedades en Colombia',
+  description: 'Explora nuestro catálogo de propiedades en venta y arriendo en Colombia. Apartamentos, casas, fincas, locales y más en Medellín, Bogotá, Cali y otras ciudades.',
+  openGraph: {
+    title: 'Propiedades en Colombia | Meraki Real Estate',
+    description: 'Explora apartamentos, casas, fincas y más propiedades en venta y arriendo en las principales ciudades de Colombia.',
+  },
+}
 
 interface SearchParams {
   tipo?: string

@@ -27,10 +27,26 @@ async function getSimilares(tipo: string, id: string) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const prop = await getPropiedad(params.slug)
   if (!prop) return { title: 'Propiedad no encontrada' }
+
+  const description = prop.descripcion.slice(0, 155) + (prop.descripcion.length > 155 ? '...' : '')
+  const images = prop.imagenes[0] ? [{ url: prop.imagenes[0], width: 1200, height: 630, alt: prop.titulo }] : []
+
   return {
-    title: `${prop.titulo} | Meraki Real Estate`,
-    description: prop.descripcion.slice(0, 160),
-    openGraph: { images: prop.imagenes[0] ? [{ url: prop.imagenes[0] }] : [] },
+    title: prop.titulo,
+    description,
+    openGraph: {
+      title: `${prop.titulo} | Meraki Real Estate`,
+      description,
+      type: 'website',
+      locale: 'es_CO',
+      images,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: prop.titulo,
+      description,
+      images: prop.imagenes[0] ? [prop.imagenes[0]] : [],
+    },
   }
 }
 
@@ -53,8 +69,36 @@ export default async function PropiedadDetailPage({ params }: Props) {
     `Hola, me interesa la propiedad: ${prop.titulo}. ¿Podría darme más información?`
   )
 
+  const BASE_URL = process.env.NEXTAUTH_URL || 'https://meraki-pagina-production.up.railway.app'
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateListing',
+    name: prop.titulo,
+    description: prop.descripcion,
+    url: `${BASE_URL}/propiedades/${prop.slug}`,
+    image: prop.imagenes,
+    offers: {
+      '@type': 'Offer',
+      price: prop.precio,
+      priceCurrency: prop.moneda,
+      availability: prop.estado === 'disponible'
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/SoldOut',
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: prop.ciudad,
+      addressCountry: 'CO',
+      ...(prop.barrio && { addressRegion: prop.barrio }),
+    },
+    ...(prop.area && { floorSize: { '@type': 'QuantitativeValue', value: prop.area, unitCode: 'MTK' } }),
+    ...(prop.habitaciones && { numberOfRooms: prop.habitaciones }),
+  }
+
   return (
     <div className="bg-[#F9F6F0] min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Breadcrumb */}
       <div
         className="pt-24 pb-6 px-4"
