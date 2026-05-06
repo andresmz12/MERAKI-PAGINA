@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma'
 import PropertyGallery from '@/components/public/PropertyGallery'
 import ContactForm from '@/components/public/ContactForm'
 import { formatPrice } from '@/lib/utils'
+
+export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 

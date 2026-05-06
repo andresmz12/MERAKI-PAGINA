@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma'
 import PropertyCard from '@/components/public/PropertyCard'
 import ContactForm from '@/components/public/ContactForm'
 
+export const dynamic = 'force-dynamic'
+
 async function getPropiedadesDestacadas() {
   return prisma.propiedad.findMany({
     where: { destacada: true, estado: 'disponible' },

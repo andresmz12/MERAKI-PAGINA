@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma'
 import PropertyCard from '@/components/public/PropertyCard'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 interface SearchParams {
   tipo?: string
   operacion?: string
