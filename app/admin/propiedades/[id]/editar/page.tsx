@@ -55,8 +55,8 @@ export default async function EditarPropiedadPage({ params }: Props) {
             </svg>
           </Link>
           <div>
-            <h1 className="font-display text-2xl text-[#0A0A0A] font-bold">Editar Propiedad</h1>
-            <p className="text-gray-500 text-sm line-clamp-1">{propiedad.titulo}</p>
+            <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.4em] uppercase mb-0.5">Panel Administrativo</p>
+            <h1 className="font-display text-3xl text-[#0A0A0A] font-light tracking-wide line-clamp-1">{propiedad.titulo}</h1>
           </div>
         </header>
 

@@ -47,8 +47,8 @@ export default async function DashboardPage() {
         {/* Header */}
         <header className="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-10 shadow-sm">
           <div>
-            <h1 className="font-display text-[#0A0A0A] text-2xl font-semibold">Dashboard</h1>
-            <p className="font-sans text-[#8B8B9E] text-sm">Bienvenido, {session.user?.name}</p>
+            <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.4em] uppercase mb-0.5">Panel Administrativo</p>
+            <h1 className="font-display text-[#0A0A0A] text-3xl font-light tracking-wide">Dashboard</h1>
           </div>
           <Link
             href="/admin/propiedades/nueva"

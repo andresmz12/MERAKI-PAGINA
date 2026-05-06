@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { signOut } from 'next-auth/react'
+import { useState } from 'react'
 
 export default function AdminSidebar() {
   const pathname = usePathname()
+  const [logoError, setLogoError] = useState(false)
 
   const navItems = [
     {
@@ -31,15 +33,21 @@ export default function AdminSidebar() {
   return (
     <aside className="w-64 bg-[#0A0A0A] min-h-screen flex flex-col fixed left-0 top-0 z-40 border-r border-white/10">
       {/* Logo */}
-      <div className="p-6 border-b border-white/10">
-        <Link href="/admin/dashboard" className="flex items-center gap-3">
-          <div className="w-9 h-9 border border-[#C9A84C] flex items-center justify-center">
-            <span className="font-display text-[#C9A84C] font-bold">M</span>
-          </div>
-          <div>
-            <div className="font-display text-white font-bold tracking-[0.2em] text-xl leading-none">MERAKI</div>
-            <div className="font-sans text-[#C9A84C] text-[10px] tracking-[0.4em] uppercase mt-0.5">Admin Panel</div>
-          </div>
+      <div className="px-6 py-5 border-b border-white/10">
+        <Link href="/admin/dashboard" className="flex flex-col items-start gap-1.5">
+          {logoError ? (
+            <span className="font-display text-[#C9A84C] text-2xl font-bold tracking-widest">MERAKI</span>
+          ) : (
+            <img
+              src="/images/logo-meraki.png"
+              alt="Meraki Real Estate"
+              width={130}
+              height={55}
+              className="object-contain brightness-0 invert"
+              onError={() => setLogoError(true)}
+            />
+          )}
+          <span className="font-sans text-[#C9A84C] text-[9px] tracking-[0.45em] uppercase">Panel Administrativo</span>
         </Link>
       </div>
 

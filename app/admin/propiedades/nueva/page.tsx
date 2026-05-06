@@ -21,8 +21,8 @@ export default async function NuevaPropiedadPage() {
             </svg>
           </Link>
           <div>
-            <h1 className="font-display text-2xl text-[#0A0A0A] font-bold">Nueva Propiedad</h1>
-            <p className="text-gray-500 text-sm">Completa los datos para agregar una propiedad</p>
+            <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.4em] uppercase mb-0.5">Panel Administrativo</p>
+            <h1 className="font-display text-3xl text-[#0A0A0A] font-light tracking-wide">Nueva Propiedad</h1>
           </div>
         </header>
 
