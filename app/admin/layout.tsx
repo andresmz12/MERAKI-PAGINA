@@ -1,11 +1,22 @@
-import { auth } from '@/lib/auth'
-import { redirect } from 'next/navigation'
-import AdminSidebar from '@/components/admin/AdminSidebar'
+import { Cormorant_Garamond, Outfit } from 'next/font/google'
 
-export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  // Login page doesn't need sidebar
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-cormorant',
+  display: 'swap',
+})
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-outfit',
+  display: 'swap',
+})
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <div className={`${cormorant.variable} ${outfit.variable} font-sans`}>
       {children}
     </div>
   )
