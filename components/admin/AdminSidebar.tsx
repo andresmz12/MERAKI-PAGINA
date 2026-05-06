@@ -33,16 +33,16 @@ export default function AdminSidebar() {
   return (
     <aside className="w-64 bg-[#0A0A0A] min-h-screen flex flex-col fixed left-0 top-0 z-40 border-r border-white/10">
       {/* Logo */}
-      <div className="px-6 py-5 border-b border-white/10">
-        <Link href="/admin/dashboard" className="flex flex-col items-start gap-1.5">
+      <div className="px-4 py-6 border-b border-white/10">
+        <Link href="/admin/dashboard" className="flex flex-col items-center gap-2">
           {logoError ? (
             <span className="font-display text-[#C9A84C] text-2xl font-bold tracking-widest">MERAKI</span>
           ) : (
             <img
               src="/images/logo-meraki.png"
               alt="Meraki Real Estate"
-              width={130}
-              height={55}
+              width={140}
+              height={60}
               className="object-contain brightness-0 invert"
               onError={() => setLogoError(true)}
             />
