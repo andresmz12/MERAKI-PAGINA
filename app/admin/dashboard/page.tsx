@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import Image from 'next/image'
 import AdminSidebar from '@/components/admin/AdminSidebar'
+import DeletePropiedadButton from '@/components/admin/DeletePropiedadButton'
 import { formatPrice } from '@/lib/utils'
 
 async function getDashboardData() {
@@ -170,7 +171,7 @@ export default async function DashboardPage() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                               </svg>
                             </Link>
-                            <DeleteButton id={prop.id} />
+                            <DeletePropiedadButton id={prop.id} />
                           </div>
                         </td>
                       </tr>
@@ -186,39 +187,3 @@ export default async function DashboardPage() {
   )
 }
 
-function DeleteButton({ id }: { id: string }) {
-  async function deleteAction() {
-    'use server'
-    const { prisma: db } = await import('@/lib/prisma')
-    const { deleteImage } = await import('@/lib/cloudinary')
-    const { revalidatePath } = await import('next/cache')
-
-    const prop = await db.propiedad.findUnique({ where: { id } })
-    if (!prop) return
-
-    for (const publicId of prop.imagenesPublicIds) {
-      try { await deleteImage(publicId) } catch { /* ignore */ }
-    }
-    await db.propiedad.delete({ where: { id } })
-    revalidatePath('/admin/dashboard')
-  }
-
-  return (
-    <form action={deleteAction}>
-      <button
-        type="submit"
-        className="p-2 text-[#8B8B9E] hover:text-red-500 transition-colors"
-        title="Eliminar"
-        onClick={(e) => {
-          if (!confirm('¿Estás seguro de eliminar esta propiedad? Esta acción no se puede deshacer.')) {
-            e.preventDefault()
-          }
-        }}
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-        </svg>
-      </button>
-    </form>
-  )
-}
