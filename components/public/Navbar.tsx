@@ -41,7 +41,7 @@ export default function Navbar() {
             </span>
           ) : (
             <img
-              src="/logo-meraki.png"
+              src="/images/logo-meraki.png"
               alt="Meraki Real Estate"
               width={120}
               height={60}
