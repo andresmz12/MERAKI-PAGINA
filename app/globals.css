@@ -3,12 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #1C3D2E;
-  --color-secondary: #C9A96E;
-  --color-accent: #E8DCC8;
-  --color-dark: #0F1F18;
-  --color-light: #F7F3EC;
-  --color-text: #2C2C2C;
+  --color-primary: #1A1A2E;
+  --color-secondary: #D4AF37;
+  --color-accent: #E8E0D0;
+  --color-dark: #0D0D1A;
+  --color-light: #F9F6F0;
+  --color-text: #2C2C3E;
+  --color-text-light: #8B8B9E;
+  --color-gold-light: #F0E6C0;
 }
 
 html {
@@ -18,7 +20,70 @@ html {
 body {
   color: var(--color-text);
   background: var(--color-light);
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+/* Scroll animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+
+/* Navbar scroll effect */
+.navbar-scrolled {
+  background: rgba(26, 26, 46, 0.95) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Property card image zoom */
+.property-card .card-image img {
+  transition: transform 0.6s ease;
+}
+.property-card:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+}
+
+@keyframes bounce-scroll {
+  0%, 100% { transform: translateY(0) translateX(-50%); }
+  50% { transform: translateY(10px) translateX(-50%); }
+}
+
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+}
+
+.animate-bounce-scroll {
+  animation: bounce-scroll 1.5s ease-in-out infinite;
+}
+
+.animate-pulse-wa {
+  animation: pulse-wa 2s infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
 }
 
 @layer utilities {

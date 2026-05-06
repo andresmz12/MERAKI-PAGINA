@@ -9,16 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#1C3D2E',
-        secondary: '#C9A96E',
-        accent: '#E8DCC8',
-        dark: '#0F1F18',
-        light: '#F7F3EC',
-        'meraki-text': '#2C2C2C',
+        primary: '#1A1A2E',
+        secondary: '#D4AF37',
+        accent: '#E8E0D0',
+        dark: '#0D0D1A',
+        light: '#F9F6F0',
+        'meraki-text': '#2C2C3E',
+        'text-light': '#8B8B9E',
+        'gold-light': '#F0E6C0',
       },
       fontFamily: {
-        display: ['var(--font-playfair)', 'serif'],
-        sans: ['var(--font-dm-sans)', 'sans-serif'],
+        display: ['var(--font-cormorant)', 'serif'],
+        sans: ['var(--font-outfit)', 'sans-serif'],
       },
     },
   },

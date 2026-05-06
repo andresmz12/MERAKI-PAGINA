@@ -2,9 +2,17 @@
 
 export function formatPrice(precio: number, moneda: string): string {
   if (moneda === 'USD') {
-    return `$ ${precio.toLocaleString('en-US')}`
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+    }).format(precio)
   }
-  return `$ ${precio.toLocaleString('es-CO')}`
+  return new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    maximumFractionDigits: 0,
+  }).format(precio)
 }
 
 export function formatArea(area: number): string {

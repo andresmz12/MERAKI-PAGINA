@@ -1,6 +1,6 @@
-import { Suspense } from 'react'
 import { prisma } from '@/lib/prisma'
 import PropertyCard from '@/components/public/PropertyCard'
+import WhatsAppButton from '@/components/public/WhatsAppButton'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
@@ -13,6 +13,9 @@ interface SearchParams {
   precioMax?: string
   page?: string
 }
+
+const TIPOS = ['apartamento', 'casa', 'lote', 'local', 'finca', 'oficina']
+const CIUDADES = ['Medellín', 'Bogotá', 'Cali', 'Cartagena', 'Santa Marta', 'Barranquilla']
 
 async function getPropiedades(searchParams: SearchParams) {
   const page = parseInt(searchParams.page || '1')
@@ -42,11 +45,7 @@ async function getPropiedades(searchParams: SearchParams) {
   return { propiedades, total, pages: Math.ceil(total / limit), page }
 }
 
-export default async function PropiedadesPage({
-  searchParams,
-}: {
-  searchParams: SearchParams
-}) {
+export default async function PropiedadesPage({ searchParams }: { searchParams: SearchParams }) {
   const { propiedades, total, pages, page } = await getPropiedades(searchParams)
 
   const buildUrl = (newParams: Record<string, string>) => {
@@ -56,142 +55,217 @@ export default async function PropiedadesPage({
     return `/propiedades?${params.toString()}`
   }
 
-  const TIPOS = ['apartamento', 'casa', 'lote', 'local', 'finca', 'oficina']
-  const CIUDADES = ['Medellín', 'Bogotá', 'Cali', 'Cartagena', 'Santa Marta', 'Barranquilla']
+  const hasFilters = searchParams.tipo || searchParams.operacion || searchParams.ciudad || searchParams.precioMin
 
   return (
-    <div className="bg-[#F7F3EC] min-h-screen">
-      {/* Header */}
-      <div className="bg-[#1C3D2E] pt-28 pb-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#C9A96E] text-xs tracking-[0.4em] uppercase mb-3">Nuestro portafolio</p>
-          <h1 className="font-display text-4xl md:text-5xl text-white font-bold mb-4">
-            Propiedades
+    <div className="bg-[#F9F6F0] min-h-screen">
+      {/* Hero header */}
+      <div
+        className="pt-32 pb-20 px-4 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #1A1A2E 0%, #2D2D4E 100%)' }}
+      >
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)',
+            backgroundSize: '30px 30px',
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <p className="font-sans text-[#D4AF37] text-xs tracking-[0.5em] uppercase mb-4">
+            NUESTRO PORTAFOLIO
+          </p>
+          <h1 className="font-display text-white font-light mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+            Nuestras <span className="font-semibold">Propiedades</span>
           </h1>
-          <p className="text-white/60 text-lg">
+          <p className="font-sans text-white/50 text-base">
             {total} propiedad{total !== 1 ? 'es' : ''} disponible{total !== 1 ? 's' : ''}
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-10">
-        {/* Filters */}
-        <form method="GET" action="/propiedades" className="bg-white shadow-md rounded-sm p-5 mb-10 grid grid-cols-2 md:grid-cols-5 gap-3">
-          <select
-            name="tipo"
-            defaultValue={searchParams.tipo || ''}
-            className="border border-gray-200 rounded-sm px-3 py-2.5 text-sm focus:outline-none focus:border-[#1C3D2E]"
-          >
-            <option value="">Todos los tipos</option>
-            {TIPOS.map(t => (
-              <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
-            ))}
-          </select>
-          <select
-            name="operacion"
-            defaultValue={searchParams.operacion || ''}
-            className="border border-gray-200 rounded-sm px-3 py-2.5 text-sm focus:outline-none focus:border-[#1C3D2E]"
-          >
-            <option value="">Venta y Arriendo</option>
-            <option value="venta">Venta</option>
-            <option value="arriendo">Arriendo</option>
-          </select>
-          <select
-            name="ciudad"
-            defaultValue={searchParams.ciudad || ''}
-            className="border border-gray-200 rounded-sm px-3 py-2.5 text-sm focus:outline-none focus:border-[#1C3D2E]"
-          >
-            <option value="">Todas las ciudades</option>
-            {CIUDADES.map(c => <option key={c} value={c}>{c}</option>)}
-          </select>
-          <input
-            type="number"
-            name="precioMin"
-            defaultValue={searchParams.precioMin || ''}
-            placeholder="Precio mín."
-            className="border border-gray-200 rounded-sm px-3 py-2.5 text-sm focus:outline-none focus:border-[#1C3D2E]"
-          />
-          <button
-            type="submit"
-            className="bg-[#1C3D2E] text-white text-sm font-semibold px-4 py-2.5 rounded-sm hover:bg-[#C9A96E] hover:text-[#0F1F18] transition-colors"
-          >
-            Filtrar
-          </button>
-        </form>
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="flex flex-col lg:flex-row gap-8">
 
-        {/* Active filters */}
-        {(searchParams.tipo || searchParams.operacion || searchParams.ciudad) && (
-          <div className="flex flex-wrap gap-2 mb-8">
-            {searchParams.tipo && (
-              <span className="bg-[#1C3D2E]/10 text-[#1C3D2E] text-xs px-3 py-1.5 rounded-sm capitalize">
-                {searchParams.tipo}
-              </span>
-            )}
-            {searchParams.operacion && (
-              <span className="bg-[#1C3D2E]/10 text-[#1C3D2E] text-xs px-3 py-1.5 rounded-sm capitalize">
-                {searchParams.operacion}
-              </span>
-            )}
-            {searchParams.ciudad && (
-              <span className="bg-[#1C3D2E]/10 text-[#1C3D2E] text-xs px-3 py-1.5 rounded-sm">
-                {searchParams.ciudad}
-              </span>
-            )}
-            <Link href="/propiedades" className="text-red-500 text-xs px-3 py-1.5 underline">
-              Limpiar filtros
-            </Link>
-          </div>
-        )}
+          {/* Sidebar filters */}
+          <aside className="lg:w-64 flex-shrink-0">
+            <div className="bg-white shadow-sm sticky top-24 p-6">
+              <h2 className="font-display text-[#1A1A2E] text-xl font-semibold mb-1">Filtros</h2>
+              <div className="w-8 h-0.5 bg-[#D4AF37] mb-6" />
 
-        {/* Grid */}
-        {propiedades.length > 0 ? (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {propiedades.map((prop) => (
-                <PropertyCard key={prop.id} propiedad={prop} />
-              ))}
-            </div>
+              <form method="GET" action="/propiedades" className="space-y-5">
+                <div>
+                  <label className="font-sans text-xs text-[#8B8B9E] tracking-wider uppercase block mb-2">Operación</label>
+                  <select
+                    name="operacion"
+                    defaultValue={searchParams.operacion || ''}
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent"
+                  >
+                    <option value="">Todas</option>
+                    <option value="venta">Venta</option>
+                    <option value="arriendo">Arriendo</option>
+                  </select>
+                </div>
 
-            {/* Pagination */}
-            {pages > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-12">
-                {page > 1 && (
-                  <Link href={buildUrl({ page: String(page - 1) })} className="px-4 py-2 border border-[#1C3D2E] text-[#1C3D2E] text-sm hover:bg-[#1C3D2E] hover:text-white transition-colors rounded-sm">
-                    Anterior
+                <div>
+                  <label className="font-sans text-xs text-[#8B8B9E] tracking-wider uppercase block mb-2">Tipo</label>
+                  <select
+                    name="tipo"
+                    defaultValue={searchParams.tipo || ''}
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent"
+                  >
+                    <option value="">Todos</option>
+                    {TIPOS.map((t) => (
+                      <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="font-sans text-xs text-[#8B8B9E] tracking-wider uppercase block mb-2">Ciudad</label>
+                  <select
+                    name="ciudad"
+                    defaultValue={searchParams.ciudad || ''}
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent"
+                  >
+                    <option value="">Todas</option>
+                    {CIUDADES.map((c) => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="font-sans text-xs text-[#8B8B9E] tracking-wider uppercase block mb-2">Precio mínimo</label>
+                  <input
+                    type="number"
+                    name="precioMin"
+                    defaultValue={searchParams.precioMin || ''}
+                    placeholder="Ej: 200000000"
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent placeholder-[#8B8B9E]"
+                  />
+                </div>
+
+                <div>
+                  <label className="font-sans text-xs text-[#8B8B9E] tracking-wider uppercase block mb-2">Precio máximo</label>
+                  <input
+                    type="number"
+                    name="precioMax"
+                    defaultValue={searchParams.precioMax || ''}
+                    placeholder="Ej: 800000000"
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent placeholder-[#8B8B9E]"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full font-sans bg-[#1A1A2E] text-white text-sm font-semibold py-3 tracking-widest uppercase hover:bg-[#D4AF37] hover:text-[#1A1A2E] transition-all duration-300"
+                >
+                  Filtrar
+                </button>
+
+                {hasFilters && (
+                  <Link
+                    href="/propiedades"
+                    className="w-full font-sans border border-[#E8E0D0] text-[#8B8B9E] text-sm py-2.5 tracking-wider uppercase text-center block hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+                  >
+                    Limpiar filtros
                   </Link>
                 )}
-                {Array.from({ length: pages }, (_, i) => i + 1).map((p) => (
-                  <Link
-                    key={p}
-                    href={buildUrl({ page: String(p) })}
-                    className={`w-10 h-10 flex items-center justify-center text-sm rounded-sm transition-colors ${
-                      p === page
-                        ? 'bg-[#1C3D2E] text-white'
-                        : 'border border-gray-300 text-gray-600 hover:border-[#1C3D2E] hover:text-[#1C3D2E]'
-                    }`}
-                  >
-                    {p}
-                  </Link>
-                ))}
-                {page < pages && (
-                  <Link href={buildUrl({ page: String(page + 1) })} className="px-4 py-2 border border-[#1C3D2E] text-[#1C3D2E] text-sm hover:bg-[#1C3D2E] hover:text-white transition-colors rounded-sm">
-                    Siguiente
-                  </Link>
+              </form>
+            </div>
+          </aside>
+
+          {/* Grid */}
+          <div className="flex-1">
+            {/* Active filters */}
+            {hasFilters && (
+              <div className="flex flex-wrap gap-2 mb-6">
+                {searchParams.operacion && (
+                  <span className="font-sans bg-[#1A1A2E] text-white text-xs px-3 py-1.5 capitalize">
+                    {searchParams.operacion}
+                  </span>
+                )}
+                {searchParams.tipo && (
+                  <span className="font-sans bg-[#1A1A2E] text-white text-xs px-3 py-1.5 capitalize">
+                    {searchParams.tipo}
+                  </span>
+                )}
+                {searchParams.ciudad && (
+                  <span className="font-sans bg-[#1A1A2E] text-white text-xs px-3 py-1.5">
+                    {searchParams.ciudad}
+                  </span>
                 )}
               </div>
             )}
-          </>
-        ) : (
-          <div className="text-center py-24">
-            <div className="text-6xl mb-6">🔍</div>
-            <h3 className="font-display text-2xl text-[#1C3D2E] font-bold mb-3">No encontramos propiedades</h3>
-            <p className="text-gray-500 mb-8">Intenta con otros filtros o explora todo nuestro portafolio.</p>
-            <Link href="/propiedades" className="inline-block bg-[#1C3D2E] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wider hover:bg-[#C9A96E] hover:text-[#0F1F18] transition-colors">
-              Ver todas las propiedades
-            </Link>
+
+            <p className="font-sans text-[#8B8B9E] text-sm mb-6">
+              Mostrando {propiedades.length} de {total} propiedades
+            </p>
+
+            {propiedades.length > 0 ? (
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {propiedades.map((prop) => (
+                    <PropertyCard key={prop.id} propiedad={prop} />
+                  ))}
+                </div>
+
+                {/* Pagination */}
+                {pages > 1 && (
+                  <div className="flex justify-center items-center gap-2 mt-12">
+                    {page > 1 && (
+                      <Link
+                        href={buildUrl({ page: String(page - 1) })}
+                        className="font-sans px-5 py-2.5 border border-[#1A1A2E] text-[#1A1A2E] text-sm tracking-wider uppercase hover:bg-[#1A1A2E] hover:text-white transition-colors"
+                      >
+                        ← Anterior
+                      </Link>
+                    )}
+                    {Array.from({ length: pages }, (_, i) => i + 1).map((p) => (
+                      <Link
+                        key={p}
+                        href={buildUrl({ page: String(p) })}
+                        className={`font-sans w-10 h-10 flex items-center justify-center text-sm transition-colors ${
+                          p === page
+                            ? 'bg-[#1A1A2E] text-white'
+                            : 'border border-[#E8E0D0] text-[#8B8B9E] hover:border-[#D4AF37] hover:text-[#D4AF37]'
+                        }`}
+                      >
+                        {p}
+                      </Link>
+                    ))}
+                    {page < pages && (
+                      <Link
+                        href={buildUrl({ page: String(page + 1) })}
+                        className="font-sans px-5 py-2.5 border border-[#1A1A2E] text-[#1A1A2E] text-sm tracking-wider uppercase hover:bg-[#1A1A2E] hover:text-white transition-colors"
+                      >
+                        Siguiente →
+                      </Link>
+                    )}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-center py-24">
+                <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-8" />
+                <h3 className="font-display text-[#1A1A2E] text-3xl font-light mb-4">
+                  Sin resultados
+                </h3>
+                <p className="font-sans text-[#8B8B9E] text-sm mb-8 max-w-sm mx-auto">
+                  No encontramos propiedades con esos filtros. Intenta con otras opciones.
+                </p>
+                <Link
+                  href="/propiedades"
+                  className="font-sans inline-block bg-[#1A1A2E] text-white px-8 py-3.5 text-sm font-semibold tracking-widest uppercase hover:bg-[#D4AF37] hover:text-[#1A1A2E] transition-all duration-300"
+                >
+                  Ver todas las propiedades
+                </Link>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
+
+      <WhatsAppButton />
     </div>
   )
 }

@@ -16,11 +16,7 @@ export default function AdminLoginPage() {
     setLoading(true)
     setError('')
 
-    const result = await signIn('credentials', {
-      email,
-      password,
-      redirect: false,
-    })
+    const result = await signIn('credentials', { email, password, redirect: false })
 
     if (result?.error) {
       setError('Credenciales inválidas. Verifica tu email y contraseña.')
@@ -32,61 +28,77 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F1F18] flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+    <div
+      className="min-h-screen flex items-center justify-center px-4 relative"
+      style={{ background: 'linear-gradient(135deg, #0D0D1A 0%, #1A1A2E 50%, #0D0D1A 100%)' }}
+    >
+      {/* Dot pattern */}
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
+
+      <div className="relative z-10 w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-10">
-          <div className="w-16 h-16 bg-[#C9A96E] rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="font-display text-[#0F1F18] font-bold text-3xl">M</span>
+          <div className="inline-flex flex-col items-center">
+            <div className="w-16 h-16 border-2 border-[#D4AF37] flex items-center justify-center mb-4">
+              <span className="font-display text-[#D4AF37] font-bold text-3xl">M</span>
+            </div>
+            <h1 className="font-display text-white text-3xl font-bold tracking-widest">MERAKI</h1>
+            <p className="font-sans text-[#D4AF37] text-[10px] tracking-[0.5em] uppercase mt-1">
+              Panel Administrativo
+            </p>
           </div>
-          <h1 className="font-display text-3xl text-white font-bold mb-1">MERAKI</h1>
-          <p className="text-[#C9A96E] text-xs tracking-[0.4em] uppercase">Panel Administrativo</p>
         </div>
 
-        {/* Form */}
-        <div className="bg-white/5 backdrop-blur border border-white/10 rounded-sm p-8">
-          <h2 className="text-white text-lg font-semibold mb-6">Iniciar sesión</h2>
+        {/* Card */}
+        <div className="bg-white/5 backdrop-blur border border-white/10 p-8">
+          <h2 className="font-display text-white text-xl font-semibold mb-6">Iniciar sesión</h2>
 
           {error && (
-            <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-sm px-4 py-3 rounded-sm mb-5">
+            <div className="bg-red-500/10 border border-red-500/30 text-red-400 font-sans text-sm px-4 py-3 mb-6">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-white/70 text-sm mb-2">Email</label>
+              <label className="font-sans block text-white/60 text-xs tracking-widest uppercase mb-2">Email</label>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white/10 border border-white/20 text-white placeholder-white/30 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] transition-colors"
+                className="w-full font-sans bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
                 placeholder="admin@meraki.com"
               />
             </div>
             <div>
-              <label className="block text-white/70 text-sm mb-2">Contraseña</label>
+              <label className="font-sans block text-white/60 text-xs tracking-widest uppercase mb-2">Contraseña</label>
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-white/10 border border-white/20 text-white placeholder-white/30 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-[#C9A96E] focus:ring-1 focus:ring-[#C9A96E] transition-colors"
+                className="w-full font-sans bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
                 placeholder="••••••••"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#C9A96E] text-[#0F1F18] font-semibold py-3 text-sm tracking-widest uppercase rounded-sm hover:bg-[#b8966a] transition-colors disabled:opacity-50 mt-2"
+              className="w-full font-sans bg-[#D4AF37] text-[#1A1A2E] font-bold py-3.5 text-sm tracking-widest uppercase hover:bg-[#c9a52f] transition-colors disabled:opacity-50 mt-2"
             >
               {loading ? 'Ingresando...' : 'Ingresar'}
             </button>
           </form>
         </div>
 
-        <p className="text-center text-white/30 text-xs mt-6">
+        <p className="font-sans text-center text-white/20 text-xs mt-6">
           © {new Date().getFullYear()} Meraki Real Estate
         </p>
       </div>
