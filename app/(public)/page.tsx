@@ -1,5 +1,4 @@
 import Hero from '@/components/public/Hero'
-import StatsSection from '@/components/public/StatsSection'
 import FeaturedProperties from '@/components/public/FeaturedProperties'
 import ServicesSection from '@/components/public/ServicesSection'
 import AboutSection from '@/components/public/AboutSection'
@@ -12,9 +11,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <StatsSection />
-      <FeaturedProperties />
       <ServicesSection />
+      <FeaturedProperties />
       <AboutSection />
       <CTASection />
       <WhatsAppButton />

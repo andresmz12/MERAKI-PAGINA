@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
       {/* Background */}
       <Image
-        src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90"
+        src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1920&q=90"
         alt="Meraki Real Estate"
         fill
         className="object-cover"
@@ -18,13 +18,13 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to bottom, rgba(13,13,26,0.6) 0%, rgba(13,13,26,0.4) 50%, rgba(13,13,26,0.85) 100%)',
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.75) 100%)',
         }}
       />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex-1 flex flex-col items-center justify-center">
-        <p className="font-sans text-[#D4AF37] text-xs tracking-[0.5em] uppercase mb-6">
+        <p className="font-sans text-[#C9A84C] text-xs tracking-[0.5em] uppercase mb-6">
           ✦ MERAKI REAL ESTATE ✦
         </p>
 
@@ -44,13 +44,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="/propiedades"
-            className="font-sans bg-[#D4AF37] text-[#1A1A2E] px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-[#c9a52f] transition-colors duration-300"
+            className="font-sans bg-[#C9A84C] text-[#0A0A0A] px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-[#c9a52f] transition-colors duration-300"
           >
             Ver Propiedades
           </a>
           <a
             href="/contacto"
-            className="font-sans border border-white text-white px-10 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-white hover:text-[#1A1A2E] transition-all duration-300"
+            className="font-sans border border-white text-white px-10 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-white hover:text-[#0A0A0A] transition-all duration-300"
           >
             Contáctanos
           </a>
@@ -66,7 +66,7 @@ export default function Hero() {
         >
           <select
             name="operacion"
-            className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#D4AF37] transition-colors"
+            className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#C9A84C] transition-colors"
           >
             <option value="">Operación</option>
             <option value="venta">Venta</option>
@@ -74,7 +74,7 @@ export default function Hero() {
           </select>
           <select
             name="tipo"
-            className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#D4AF37] transition-colors"
+            className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#C9A84C] transition-colors"
           >
             <option value="">Tipo de propiedad</option>
             {TIPOS.map((t) => (
@@ -83,7 +83,7 @@ export default function Hero() {
           </select>
           <select
             name="ciudad"
-            className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#D4AF37] transition-colors"
+            className="flex-1 font-sans bg-transparent text-[#2C2C3E] px-4 py-3 text-sm border border-[#E8E0D0] rounded-lg focus:outline-none focus:border-[#C9A84C] transition-colors"
           >
             <option value="">Ciudad</option>
             {CIUDADES.map((c) => (
@@ -92,7 +92,7 @@ export default function Hero() {
           </select>
           <button
             type="submit"
-            className="font-sans bg-[#D4AF37] text-[#1A1A2E] font-bold px-8 py-3 text-sm tracking-widest uppercase rounded-lg hover:bg-[#c9a52f] transition-colors whitespace-nowrap"
+            className="font-sans bg-[#C9A84C] text-[#0A0A0A] font-bold px-8 py-3 text-sm tracking-widest uppercase rounded-lg hover:bg-[#c9a52f] transition-colors whitespace-nowrap"
           >
             Buscar
           </button>
@@ -101,8 +101,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="animate-bounce-scroll absolute bottom-6 left-1/2 flex flex-col items-center gap-1">
-        <span className="font-sans text-[#D4AF37] text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-        <svg className="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <span className="font-sans text-[#C9A84C] text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+        <svg className="w-5 h-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7"/>
         </svg>
       </div>

@@ -9,12 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#1A1A2E',
-        secondary: '#D4AF37',
+        primary: '#0A0A0A',
+        secondary: '#C9A84C',
         accent: '#E8E0D0',
-        dark: '#0D0D1A',
-        light: '#F9F6F0',
-        'meraki-text': '#2C2C3E',
+        dark: '#000000',
+        light: '#F5F0E8',
+        'bg-dark': '#111111',
+        'bg-card': '#1A1A1A',
+        'meraki-text': '#1A1A1A',
         'text-light': '#8B8B9E',
         'gold-light': '#F0E6C0',
       },

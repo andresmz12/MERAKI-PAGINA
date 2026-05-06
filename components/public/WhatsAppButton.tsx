@@ -16,7 +16,7 @@ export default function WhatsAppButton() {
     >
       {/* Tooltip */}
       <span
-        className={`font-sans bg-[#1A1A2E] text-white text-xs font-semibold px-3 py-2 whitespace-nowrap transition-all duration-300 ${
+        className={`font-sans bg-[#0A0A0A] text-white text-xs font-semibold px-3 py-2 whitespace-nowrap transition-all duration-300 ${
           hovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2'
         }`}
       >

@@ -19,11 +19,11 @@ export default async function FeaturedProperties() {
 
         {/* Header */}
         <div className="flex flex-col items-center mb-14 text-center">
-          <div className="w-10 h-0.5 bg-[#D4AF37] mb-5" />
-          <p className="font-sans text-[#D4AF37] text-xs tracking-[0.4em] uppercase mb-3">
+          <div className="w-10 h-0.5 bg-[#C9A84C] mb-5" />
+          <p className="font-sans text-[#C9A84C] text-xs tracking-[0.4em] uppercase mb-3">
             SELECCIÓN EXCLUSIVA
           </p>
-          <h2 className="font-display text-[#1A1A2E] font-light" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+          <h2 className="font-display text-[#0A0A0A] font-light" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
             Propiedades <span className="font-semibold">Destacadas</span>
           </h2>
         </div>
@@ -38,7 +38,7 @@ export default async function FeaturedProperties() {
             <div className="text-center mt-14">
               <Link
                 href="/propiedades"
-                className="font-sans inline-block border-2 border-[#1A1A2E] text-[#1A1A2E] px-10 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-[#1A1A2E] hover:text-white transition-all duration-300"
+                className="font-sans inline-block border-2 border-[#0A0A0A] text-[#0A0A0A] px-10 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-[#0A0A0A] hover:text-white transition-all duration-300"
               >
                 Ver Todas las Propiedades
               </Link>
@@ -46,8 +46,8 @@ export default async function FeaturedProperties() {
           </>
         ) : (
           <div className="text-center py-16 px-8 max-w-lg mx-auto">
-            <div className="w-16 h-0.5 bg-[#D4AF37] mx-auto mb-8" />
-            <p className="font-display text-[#1A1A2E] text-2xl mb-4 font-light">
+            <div className="w-16 h-0.5 bg-[#C9A84C] mx-auto mb-8" />
+            <p className="font-display text-[#0A0A0A] text-2xl mb-4 font-light">
               Próximamente
             </p>
             <p className="font-sans text-[#8B8B9E] text-sm leading-relaxed mb-8">
@@ -57,7 +57,7 @@ export default async function FeaturedProperties() {
               href="https://wa.me/573147559119?text=Hola, me gustaría recibir información anticipada sobre nuevas propiedades"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans inline-block bg-[#D4AF37] text-[#1A1A2E] px-8 py-3.5 text-sm font-bold tracking-widest uppercase hover:bg-[#c9a52f] transition-colors"
+              className="font-sans inline-block bg-[#C9A84C] text-[#0A0A0A] px-8 py-3.5 text-sm font-bold tracking-widest uppercase hover:bg-[#c9a52f] transition-colors"
             >
               Contactar Ahora
             </a>

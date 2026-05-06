@@ -30,9 +30,9 @@ export default async function DashboardPage() {
   }
 
   const stats = [
-    { label: 'Total', value: total, icon: '🏠', color: 'bg-[#1A1A2E]' },
+    { label: 'Total', value: total, icon: '🏠', color: 'bg-[#0A0A0A]' },
     { label: 'Disponibles', value: disponibles, icon: '✅', color: 'bg-emerald-600' },
-    { label: 'Vendidas / Arrendadas', value: vendidos, icon: '🔑', color: 'bg-[#D4AF37]' },
+    { label: 'Vendidas / Arrendadas', value: vendidos, icon: '🔑', color: 'bg-[#C9A84C]' },
     { label: 'Destacadas', value: destacadas, icon: '⭐', color: 'bg-purple-600' },
   ]
 
@@ -44,12 +44,12 @@ export default async function DashboardPage() {
         {/* Header */}
         <header className="bg-white border-b border-gray-100 px-8 py-5 flex items-center justify-between sticky top-0 z-10 shadow-sm">
           <div>
-            <h1 className="font-display text-[#1A1A2E] text-2xl font-semibold">Dashboard</h1>
+            <h1 className="font-display text-[#0A0A0A] text-2xl font-semibold">Dashboard</h1>
             <p className="font-sans text-[#8B8B9E] text-sm">Bienvenido, {session.user?.name}</p>
           </div>
           <Link
             href="/admin/propiedades/nueva"
-            className="font-sans bg-[#D4AF37] text-[#1A1A2E] text-sm font-bold px-6 py-2.5 tracking-widest uppercase hover:bg-[#c9a52f] transition-colors flex items-center gap-2"
+            className="font-sans bg-[#C9A84C] text-[#0A0A0A] text-sm font-bold px-6 py-2.5 tracking-widest uppercase hover:bg-[#c9a52f] transition-colors flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4"/>
@@ -67,7 +67,7 @@ export default async function DashboardPage() {
                   {stat.icon}
                 </div>
                 <div>
-                  <div className="font-display text-[#1A1A2E] text-3xl font-semibold leading-none">{stat.value}</div>
+                  <div className="font-display text-[#0A0A0A] text-3xl font-semibold leading-none">{stat.value}</div>
                   <div className="font-sans text-[#8B8B9E] text-xs mt-1 tracking-wider uppercase">{stat.label}</div>
                 </div>
               </div>
@@ -77,17 +77,17 @@ export default async function DashboardPage() {
           {/* Table */}
           <div className="bg-white border border-gray-100 shadow-sm overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-              <h2 className="font-display text-[#1A1A2E] text-lg font-semibold">Todas las propiedades</h2>
+              <h2 className="font-display text-[#0A0A0A] text-lg font-semibold">Todas las propiedades</h2>
               <span className="font-sans text-[#8B8B9E] text-sm">{total} registros</span>
             </div>
 
             {propiedades.length === 0 ? (
               <div className="text-center py-20">
-                <div className="font-display text-[#D4AF37] text-6xl mb-4 opacity-30">M</div>
+                <div className="font-display text-[#C9A84C] text-6xl mb-4 opacity-30">M</div>
                 <p className="font-sans text-[#8B8B9E] text-sm mb-6">No hay propiedades aún</p>
                 <Link
                   href="/admin/propiedades/nueva"
-                  className="font-sans inline-block bg-[#1A1A2E] text-white text-sm px-6 py-3 tracking-widest uppercase hover:bg-[#D4AF37] hover:text-[#1A1A2E] transition-all duration-300"
+                  className="font-sans inline-block bg-[#0A0A0A] text-white text-sm px-6 py-3 tracking-widest uppercase hover:bg-[#C9A84C] hover:text-[#0A0A0A] transition-all duration-300"
                 >
                   Crear primera propiedad
                 </Link>
@@ -119,7 +119,7 @@ export default async function DashboardPage() {
                                   sizes="56px"
                                 />
                               ) : (
-                                <div className="w-full h-full flex items-center justify-center font-display text-[#D4AF37] text-xl font-bold opacity-30">M</div>
+                                <div className="w-full h-full flex items-center justify-center font-display text-[#C9A84C] text-xl font-bold opacity-30">M</div>
                               )}
                             </div>
                             <div>
@@ -128,7 +128,7 @@ export default async function DashboardPage() {
                                 {prop.ciudad}{prop.barrio ? `, ${prop.barrio}` : ''}
                               </div>
                               {prop.destacada && (
-                                <span className="font-sans text-[#D4AF37] text-xs font-semibold">★ Destacada</span>
+                                <span className="font-sans text-[#C9A84C] text-xs font-semibold">★ Destacada</span>
                               )}
                             </div>
                           </div>
@@ -140,7 +140,7 @@ export default async function DashboardPage() {
                           </div>
                         </td>
                         <td className="px-6 py-4">
-                          <div className="font-display text-[#1A1A2E] font-semibold">
+                          <div className="font-display text-[#0A0A0A] font-semibold">
                             {formatPrice(prop.precio, prop.moneda)}
                           </div>
                         </td>
@@ -154,7 +154,7 @@ export default async function DashboardPage() {
                             <Link
                               href={`/propiedades/${prop.slug}`}
                               target="_blank"
-                              className="p-2 text-[#8B8B9E] hover:text-[#1A1A2E] transition-colors"
+                              className="p-2 text-[#8B8B9E] hover:text-[#0A0A0A] transition-colors"
                               title="Ver en sitio"
                             >
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,7 +163,7 @@ export default async function DashboardPage() {
                             </Link>
                             <Link
                               href={`/admin/propiedades/${prop.id}/editar`}
-                              className="p-2 text-[#8B8B9E] hover:text-[#1A1A2E] transition-colors"
+                              className="p-2 text-[#8B8B9E] hover:text-[#0A0A0A] transition-colors"
                               title="Editar"
                             >
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

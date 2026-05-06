@@ -57,17 +57,17 @@ export default function ContactoPage() {
       {/* Header */}
       <div
         className="pt-32 pb-20 px-4 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1A1A2E 0%, #2D2D4E 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%)' }}
       >
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(#C9A84C 1px, transparent 1px)',
             backgroundSize: '30px 30px',
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <p className="font-sans text-[#D4AF37] text-xs tracking-[0.5em] uppercase mb-4">ESTAMOS AQUÍ</p>
+          <p className="font-sans text-[#C9A84C] text-xs tracking-[0.5em] uppercase mb-4">ESTAMOS AQUÍ</p>
           <h1 className="font-display text-white font-light mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
             Hablemos <span className="font-semibold">Hoy</span>
           </h1>
@@ -82,19 +82,19 @@ export default function ContactoPage() {
 
           {/* Info */}
           <div>
-            <h2 className="font-display text-[#1A1A2E] text-3xl font-semibold mb-1">
+            <h2 className="font-display text-[#0A0A0A] text-3xl font-semibold mb-1">
               Información de contacto
             </h2>
-            <div className="w-10 h-0.5 bg-[#D4AF37] mb-10" />
+            <div className="w-10 h-0.5 bg-[#C9A84C] mb-10" />
 
             <div className="space-y-8">
               {contactInfo.map((item) => (
                 <div key={item.title} className="flex gap-5">
-                  <div className="w-12 h-12 bg-[#1A1A2E] flex items-center justify-center text-[#D4AF37] flex-shrink-0">
+                  <div className="w-12 h-12 bg-[#0A0A0A] flex items-center justify-center text-[#C9A84C] flex-shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <h3 className="font-sans font-semibold text-[#1A1A2E] text-sm mb-1 tracking-wider uppercase">
+                    <h3 className="font-sans font-semibold text-[#0A0A0A] text-sm mb-1 tracking-wider uppercase">
                       {item.title}
                     </h3>
                     {item.lines.map((line) =>
@@ -102,7 +102,7 @@ export default function ContactoPage() {
                         <a
                           key={line}
                           href={item.href}
-                          className="font-sans text-[#8B8B9E] text-sm hover:text-[#D4AF37] transition-colors block"
+                          className="font-sans text-[#8B8B9E] text-sm hover:text-[#C9A84C] transition-colors block"
                         >
                           {line}
                         </a>
@@ -123,7 +123,7 @@ export default function ContactoPage() {
                   href="https://www.instagram.com/meraki_real_estate"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-sm text-[#1A1A2E] border border-[#E8E0D0] px-4 py-2 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+                  className="font-sans text-sm text-[#0A0A0A] border border-[#E8E0D0] px-4 py-2 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
                 >
                   Instagram
                 </a>
@@ -131,7 +131,7 @@ export default function ContactoPage() {
                   href="https://www.tiktok.com/@merakirealestate"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-sm text-[#1A1A2E] border border-[#E8E0D0] px-4 py-2 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+                  className="font-sans text-sm text-[#0A0A0A] border border-[#E8E0D0] px-4 py-2 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
                 >
                   TikTok
                 </a>
@@ -139,7 +139,7 @@ export default function ContactoPage() {
                   href="https://linktr.ee/grupomerakirealestate"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-sm text-[#1A1A2E] border border-[#E8E0D0] px-4 py-2 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+                  className="font-sans text-sm text-[#0A0A0A] border border-[#E8E0D0] px-4 py-2 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
                 >
                   Linktree
                 </a>
@@ -162,8 +162,8 @@ export default function ContactoPage() {
 
           {/* Form */}
           <div className="bg-white p-10 shadow-sm">
-            <h2 className="font-display text-[#1A1A2E] text-2xl font-semibold mb-1">Envíanos un mensaje</h2>
-            <div className="w-8 h-0.5 bg-[#D4AF37] mb-8" />
+            <h2 className="font-display text-[#0A0A0A] text-2xl font-semibold mb-1">Envíanos un mensaje</h2>
+            <div className="w-8 h-0.5 bg-[#C9A84C] mb-8" />
             <ContactForm />
           </div>
         </div>

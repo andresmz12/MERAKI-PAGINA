@@ -1,16 +1,34 @@
+'use client'
+import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
+  const [logoError, setLogoError] = useState(false)
+
   return (
-    <footer className="bg-[#0D0D1A] text-white">
+    <footer className="bg-[#111111] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-5">
-              <div className="font-display text-[#D4AF37] text-2xl font-bold tracking-widest leading-none">MERAKI</div>
-              <div className="font-sans text-white/50 text-[9px] tracking-[0.35em] uppercase mt-0.5">Real Estate</div>
+              {logoError ? (
+                <div>
+                  <div className="font-display text-[#C9A84C] text-2xl font-bold tracking-widest leading-none">MERAKI</div>
+                  <div className="font-sans text-white/50 text-[9px] tracking-[0.35em] uppercase mt-0.5">Real Estate</div>
+                </div>
+              ) : (
+                <Image
+                  src="/logo-meraki.png"
+                  alt="Meraki Real Estate"
+                  width={120}
+                  height={60}
+                  className="object-contain brightness-0 invert"
+                  onError={() => setLogoError(true)}
+                />
+              )}
             </div>
             <p className="font-sans text-white/50 text-sm leading-relaxed mb-6">
               Nacimos con el propósito de ofrecer un servicio inmobiliario confiable y transparente para quienes buscan su primera vivienda o desean invertir con seguridad.
@@ -20,7 +38,7 @@ export default function Footer() {
                 href="https://www.instagram.com/meraki_real_estate"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-200"
+                className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all duration-200"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -31,7 +49,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@merakirealestate"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-200"
+                className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all duration-200"
                 aria-label="TikTok"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -42,7 +60,7 @@ export default function Footer() {
                 href="https://linktr.ee/grupomerakirealestate"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-200 font-sans text-xs font-bold"
+                className="w-9 h-9 border border-white/20 flex items-center justify-center text-white/50 hover:border-[#C9A84C] hover:text-[#C9A84C] transition-all duration-200 font-sans text-xs font-bold"
                 aria-label="Linktree"
               >
                 ltr
@@ -52,7 +70,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-sans text-[#D4AF37] text-xs tracking-[0.3em] uppercase mb-6">Navegación</h4>
+            <h4 className="font-sans text-[#C9A84C] text-xs tracking-[0.3em] uppercase mb-6">Navegación</h4>
             <ul className="space-y-3">
               {[
                 { href: '/', label: 'Inicio' },
@@ -61,7 +79,7 @@ export default function Footer() {
                 { href: '/contacto', label: 'Contacto' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="font-sans text-white/50 hover:text-[#D4AF37] text-sm transition-colors">
+                  <Link href={link.href} className="font-sans text-white/50 hover:text-[#C9A84C] text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -71,7 +89,7 @@ export default function Footer() {
 
           {/* Properties */}
           <div>
-            <h4 className="font-sans text-[#D4AF37] text-xs tracking-[0.3em] uppercase mb-6">Propiedades</h4>
+            <h4 className="font-sans text-[#C9A84C] text-xs tracking-[0.3em] uppercase mb-6">Propiedades</h4>
             <ul className="space-y-3">
               {[
                 { href: '/propiedades?operacion=venta', label: 'En Venta' },
@@ -79,7 +97,7 @@ export default function Footer() {
                 { href: '/propiedades?destacada=true', label: 'Destacadas' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="font-sans text-white/50 hover:text-[#D4AF37] text-sm transition-colors">
+                  <Link href={link.href} className="font-sans text-white/50 hover:text-[#C9A84C] text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -89,10 +107,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-sans text-[#D4AF37] text-xs tracking-[0.3em] uppercase mb-6">Contacto</h4>
+            <h4 className="font-sans text-[#C9A84C] text-xs tracking-[0.3em] uppercase mb-6">Contacto</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-2.5">
-                <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">
+                <span className="text-[#C9A84C] mt-0.5 flex-shrink-0">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -101,22 +119,22 @@ export default function Footer() {
                 <span className="font-sans text-white/50">Medellín, Antioquia, Colombia</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <span className="text-[#D4AF37] flex-shrink-0">
+                <span className="text-[#C9A84C] flex-shrink-0">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                   </svg>
                 </span>
-                <a href="tel:+573147559119" className="font-sans text-white/50 hover:text-[#D4AF37] transition-colors">
+                <a href="tel:+573147559119" className="font-sans text-white/50 hover:text-[#C9A84C] transition-colors">
                   +57 314 755 9119
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <span className="text-[#D4AF37] flex-shrink-0">
+                <span className="text-[#C9A84C] flex-shrink-0">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
                 </span>
-                <a href="mailto:grupomerakirealestate@gmail.com" className="font-sans text-white/50 hover:text-[#D4AF37] transition-colors break-all">
+                <a href="mailto:grupomerakirealestate@gmail.com" className="font-sans text-white/50 hover:text-[#C9A84C] transition-colors break-all">
                   grupomerakirealestate@gmail.com
                 </a>
               </li>
@@ -124,13 +142,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#D4AF37]/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-[#C9A84C]/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-sans text-white/30 text-xs">
             © {new Date().getFullYear()} Meraki Real Estate. Todos los derechos reservados.
           </p>
           <div className="flex gap-6 font-sans text-white/30 text-xs">
-            <a href="#" className="hover:text-[#D4AF37] transition-colors">Política de privacidad</a>
-            <a href="#" className="hover:text-[#D4AF37] transition-colors">Términos de uso</a>
+            <a href="#" className="hover:text-[#C9A84C] transition-colors">Política de privacidad</a>
+            <a href="#" className="hover:text-[#C9A84C] transition-colors">Términos de uso</a>
           </div>
         </div>
       </div>

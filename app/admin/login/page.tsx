@@ -30,13 +30,13 @@ export default function AdminLoginPage() {
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4 relative"
-      style={{ background: 'linear-gradient(135deg, #0D0D1A 0%, #1A1A2E 50%, #0D0D1A 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #111111 0%, #0A0A0A 50%, #111111 100%)' }}
     >
       {/* Dot pattern */}
       <div
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(#C9A84C 1px, transparent 1px)',
           backgroundSize: '30px 30px',
         }}
       />
@@ -45,11 +45,11 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-10">
           <div className="inline-flex flex-col items-center">
-            <div className="w-16 h-16 border-2 border-[#D4AF37] flex items-center justify-center mb-4">
-              <span className="font-display text-[#D4AF37] font-bold text-3xl">M</span>
+            <div className="w-16 h-16 border-2 border-[#C9A84C] flex items-center justify-center mb-4">
+              <span className="font-display text-[#C9A84C] font-bold text-3xl">M</span>
             </div>
             <h1 className="font-display text-white text-3xl font-bold tracking-widest">MERAKI</h1>
-            <p className="font-sans text-[#D4AF37] text-[10px] tracking-[0.5em] uppercase mt-1">
+            <p className="font-sans text-[#C9A84C] text-[10px] tracking-[0.5em] uppercase mt-1">
               Panel Administrativo
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full font-sans bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                className="w-full font-sans bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-[#C9A84C] transition-colors"
                 placeholder="admin@meraki.com"
               />
             </div>
@@ -84,14 +84,14 @@ export default function AdminLoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full font-sans bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                className="w-full font-sans bg-white/10 border border-white/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-[#C9A84C] transition-colors"
                 placeholder="••••••••"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full font-sans bg-[#D4AF37] text-[#1A1A2E] font-bold py-3.5 text-sm tracking-widest uppercase hover:bg-[#c9a52f] transition-colors disabled:opacity-50 mt-2"
+              className="w-full font-sans bg-[#C9A84C] text-[#0A0A0A] font-bold py-3.5 text-sm tracking-widest uppercase hover:bg-[#c9a52f] transition-colors disabled:opacity-50 mt-2"
             >
               {loading ? 'Ingresando...' : 'Ingresar'}
             </button>

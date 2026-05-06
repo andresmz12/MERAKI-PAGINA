@@ -40,11 +40,11 @@ export default function ServicesSection() {
 
         {/* Header */}
         <div className="flex flex-col items-center mb-16 text-center fade-up">
-          <div className="w-10 h-0.5 bg-[#D4AF37] mb-5" />
-          <p className="font-sans text-[#D4AF37] text-xs tracking-[0.4em] uppercase mb-3">
+          <div className="w-10 h-0.5 bg-[#C9A84C] mb-5" />
+          <p className="font-sans text-[#C9A84C] text-xs tracking-[0.4em] uppercase mb-3">
             LO QUE HACEMOS
           </p>
-          <h2 className="font-display text-[#1A1A2E] font-light" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+          <h2 className="font-display text-[#0A0A0A] font-light" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
             Nuestros <span className="font-semibold">Servicios</span>
           </h2>
         </div>
@@ -53,10 +53,10 @@ export default function ServicesSection() {
           {services.map((service, i) => (
             <div
               key={service.title}
-              className={`fade-up stagger-${i + 1} group border-t-4 border-[#D4AF37] bg-[#F9F6F0] p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+              className={`fade-up stagger-${i + 1} group border-t-4 border-[#C9A84C] bg-[#F9F6F0] p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
             >
-              <div className="text-[#D4AF37] mb-6">{service.icon}</div>
-              <h3 className="font-display text-[#1A1A2E] text-2xl font-semibold mb-4">
+              <div className="text-[#C9A84C] mb-6">{service.icon}</div>
+              <h3 className="font-display text-[#0A0A0A] text-2xl font-semibold mb-4">
                 {service.title}
               </h3>
               <p className="font-sans text-[#8B8B9E] text-sm leading-relaxed">

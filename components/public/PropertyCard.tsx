@@ -47,21 +47,21 @@ export default function PropertyCard({ propiedad }: { propiedad: Propiedad }) {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#1A1A2E] to-[#2D2D4E] flex items-center justify-center">
-              <span className="font-display text-[#D4AF37] text-4xl font-bold tracking-widest opacity-40">M</span>
+            <div className="w-full h-full bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] flex items-center justify-center">
+              <span className="font-display text-[#C9A84C] text-4xl font-bold tracking-widest opacity-40">M</span>
             </div>
           )}
 
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-[#0D0D1A]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span className="font-sans bg-[#D4AF37] text-[#1A1A2E] px-6 py-2.5 text-xs font-bold tracking-widest uppercase">
+          <div className="absolute inset-0 bg-[#111111]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span className="font-sans bg-[#C9A84C] text-[#0A0A0A] px-6 py-2.5 text-xs font-bold tracking-widest uppercase">
               Ver Propiedad
             </span>
           </div>
 
           {/* Badges */}
           <div className="absolute top-3 left-3">
-            <span className="font-sans bg-[#D4AF37] text-[#1A1A2E] text-xs font-bold px-3 py-1.5 tracking-wider">
+            <span className="font-sans bg-[#C9A84C] text-[#0A0A0A] text-xs font-bold px-3 py-1.5 tracking-wider">
               {operacionLabel}
             </span>
           </div>
@@ -74,7 +74,7 @@ export default function PropertyCard({ propiedad }: { propiedad: Propiedad }) {
           )}
           {propiedad.destacada && !estadoBadge && (
             <div className="absolute top-3 right-3">
-              <span className="font-sans bg-[#1A1A2E] text-[#D4AF37] text-xs font-bold px-3 py-1.5 tracking-wider">
+              <span className="font-sans bg-[#0A0A0A] text-[#C9A84C] text-xs font-bold px-3 py-1.5 tracking-wider">
                 DESTACADA
               </span>
             </div>
@@ -83,7 +83,7 @@ export default function PropertyCard({ propiedad }: { propiedad: Propiedad }) {
 
         {/* Content */}
         <div className="p-5">
-          <div className="font-display text-[#D4AF37] text-2xl font-semibold mb-1">
+          <div className="font-display text-[#C9A84C] text-2xl font-semibold mb-1">
             {formatPrice(propiedad.precio, propiedad.moneda)}
             {propiedad.operacion === 'arriendo' && (
               <span className="font-sans text-sm font-normal text-[#8B8B9E]">/mes</span>
@@ -104,7 +104,7 @@ export default function PropertyCard({ propiedad }: { propiedad: Propiedad }) {
 
           {/* Stats row */}
           {(propiedad.habitaciones || propiedad.banos || propiedad.area) && (
-            <div className="flex items-center gap-4 py-3 border-t border-[#D4AF37]/20 text-xs text-[#8B8B9E] font-sans">
+            <div className="flex items-center gap-4 py-3 border-t border-[#C9A84C]/20 text-xs text-[#8B8B9E] font-sans">
               {propiedad.habitaciones && (
                 <div className="flex items-center gap-1.5">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

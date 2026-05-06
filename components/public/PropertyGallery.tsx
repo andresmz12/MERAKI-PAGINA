@@ -14,8 +14,8 @@ export default function PropertyGallery({ imagenes, titulo }: PropertyGalleryPro
 
   if (imagenes.length === 0) {
     return (
-      <div className="h-[500px] bg-gradient-to-br from-[#1A1A2E] to-[#2D2D4E] flex items-center justify-center">
-        <span className="font-display text-[#D4AF37] text-5xl font-bold tracking-widest opacity-20">MERAKI</span>
+      <div className="h-[500px] bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] flex items-center justify-center">
+        <span className="font-display text-[#C9A84C] text-5xl font-bold tracking-widest opacity-20">MERAKI</span>
       </div>
     )
   }
@@ -36,9 +36,9 @@ export default function PropertyGallery({ imagenes, titulo }: PropertyGalleryPro
             sizes="50vw"
             priority
           />
-          <div className="absolute inset-0 bg-[#0D0D1A]/0 group-hover:bg-[#0D0D1A]/20 transition-all duration-300" />
+          <div className="absolute inset-0 bg-[#111111]/0 group-hover:bg-[#111111]/20 transition-all duration-300" />
           {imagenes.length > 1 && (
-            <div className="absolute bottom-4 right-4 font-sans bg-[#1A1A2E]/80 text-white text-xs px-3 py-1.5 tracking-wider">
+            <div className="absolute bottom-4 right-4 font-sans bg-[#0A0A0A]/80 text-white text-xs px-3 py-1.5 tracking-wider">
               Ver todas ({imagenes.length})
             </div>
           )}
@@ -60,9 +60,9 @@ export default function PropertyGallery({ imagenes, titulo }: PropertyGalleryPro
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="25vw"
                 />
-                <div className="absolute inset-0 bg-[#0D0D1A]/0 group-hover:bg-[#0D0D1A]/20 transition-all duration-300" />
+                <div className="absolute inset-0 bg-[#111111]/0 group-hover:bg-[#111111]/20 transition-all duration-300" />
                 {idx === 1 && imagenes.length > 3 && (
-                  <div className="absolute inset-0 bg-[#1A1A2E]/50 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#0A0A0A]/50 flex items-center justify-center">
                     <span className="font-display text-white text-2xl font-semibold">+{imagenes.length - 3} más</span>
                   </div>
                 )}
@@ -80,7 +80,7 @@ export default function PropertyGallery({ imagenes, titulo }: PropertyGalleryPro
               key={idx}
               onClick={() => { setActiveIndex(idx); setLightboxOpen(true) }}
               className={`relative w-16 h-16 flex-shrink-0 overflow-hidden transition-all duration-200 ${
-                idx === activeIndex ? 'ring-2 ring-[#D4AF37]' : 'opacity-70 hover:opacity-100'
+                idx === activeIndex ? 'ring-2 ring-[#C9A84C]' : 'opacity-70 hover:opacity-100'
               }`}
             >
               <Image src={img} alt={`${titulo} ${idx + 1}`} fill className="object-cover" sizes="64px" />
@@ -96,13 +96,13 @@ export default function PropertyGallery({ imagenes, titulo }: PropertyGalleryPro
           onClick={() => setLightboxOpen(false)}
         >
           <button
-            className="absolute top-4 right-4 font-sans text-white/60 hover:text-[#D4AF37] transition-colors z-50 text-4xl leading-none"
+            className="absolute top-4 right-4 font-sans text-white/60 hover:text-[#C9A84C] transition-colors z-50 text-4xl leading-none"
             onClick={() => setLightboxOpen(false)}
           >
             ×
           </button>
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-[#D4AF37] transition-colors z-50 text-5xl leading-none disabled:opacity-20"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-[#C9A84C] transition-colors z-50 text-5xl leading-none disabled:opacity-20"
             disabled={activeIndex === 0}
             onClick={(e) => { e.stopPropagation(); setActiveIndex((i) => i - 1) }}
           >
@@ -121,7 +121,7 @@ export default function PropertyGallery({ imagenes, titulo }: PropertyGalleryPro
             />
           </div>
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-[#D4AF37] transition-colors z-50 text-5xl leading-none disabled:opacity-20"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-[#C9A84C] transition-colors z-50 text-5xl leading-none disabled:opacity-20"
             disabled={activeIndex === imagenes.length - 1}
             onClick={(e) => { e.stopPropagation(); setActiveIndex((i) => i + 1) }}
           >

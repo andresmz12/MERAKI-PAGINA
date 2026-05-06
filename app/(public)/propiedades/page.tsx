@@ -62,17 +62,17 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
       {/* Hero header */}
       <div
         className="pt-32 pb-20 px-4 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1A1A2E 0%, #2D2D4E 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%)' }}
       >
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(#C9A84C 1px, transparent 1px)',
             backgroundSize: '30px 30px',
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <p className="font-sans text-[#D4AF37] text-xs tracking-[0.5em] uppercase mb-4">
+          <p className="font-sans text-[#C9A84C] text-xs tracking-[0.5em] uppercase mb-4">
             NUESTRO PORTAFOLIO
           </p>
           <h1 className="font-display text-white font-light mb-3" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
@@ -90,8 +90,8 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
           {/* Sidebar filters */}
           <aside className="lg:w-64 flex-shrink-0">
             <div className="bg-white shadow-sm sticky top-24 p-6">
-              <h2 className="font-display text-[#1A1A2E] text-xl font-semibold mb-1">Filtros</h2>
-              <div className="w-8 h-0.5 bg-[#D4AF37] mb-6" />
+              <h2 className="font-display text-[#0A0A0A] text-xl font-semibold mb-1">Filtros</h2>
+              <div className="w-8 h-0.5 bg-[#C9A84C] mb-6" />
 
               <form method="GET" action="/propiedades" className="space-y-5">
                 <div>
@@ -99,7 +99,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                   <select
                     name="operacion"
                     defaultValue={searchParams.operacion || ''}
-                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent"
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#C9A84C] transition-colors bg-transparent"
                   >
                     <option value="">Todas</option>
                     <option value="venta">Venta</option>
@@ -112,7 +112,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                   <select
                     name="tipo"
                     defaultValue={searchParams.tipo || ''}
-                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent"
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#C9A84C] transition-colors bg-transparent"
                   >
                     <option value="">Todos</option>
                     {TIPOS.map((t) => (
@@ -126,7 +126,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                   <select
                     name="ciudad"
                     defaultValue={searchParams.ciudad || ''}
-                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent"
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#C9A84C] transition-colors bg-transparent"
                   >
                     <option value="">Todas</option>
                     {CIUDADES.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -140,7 +140,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                     name="precioMin"
                     defaultValue={searchParams.precioMin || ''}
                     placeholder="Ej: 200000000"
-                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent placeholder-[#8B8B9E]"
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#C9A84C] transition-colors bg-transparent placeholder-[#8B8B9E]"
                   />
                 </div>
 
@@ -151,13 +151,13 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                     name="precioMax"
                     defaultValue={searchParams.precioMax || ''}
                     placeholder="Ej: 800000000"
-                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#D4AF37] transition-colors bg-transparent placeholder-[#8B8B9E]"
+                    className="w-full font-sans border border-[#E8E0D0] px-3 py-2.5 text-sm text-[#2C2C3E] focus:outline-none focus:border-[#C9A84C] transition-colors bg-transparent placeholder-[#8B8B9E]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full font-sans bg-[#1A1A2E] text-white text-sm font-semibold py-3 tracking-widest uppercase hover:bg-[#D4AF37] hover:text-[#1A1A2E] transition-all duration-300"
+                  className="w-full font-sans bg-[#0A0A0A] text-white text-sm font-semibold py-3 tracking-widest uppercase hover:bg-[#C9A84C] hover:text-[#0A0A0A] transition-all duration-300"
                 >
                   Filtrar
                 </button>
@@ -165,7 +165,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                 {hasFilters && (
                   <Link
                     href="/propiedades"
-                    className="w-full font-sans border border-[#E8E0D0] text-[#8B8B9E] text-sm py-2.5 tracking-wider uppercase text-center block hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+                    className="w-full font-sans border border-[#E8E0D0] text-[#8B8B9E] text-sm py-2.5 tracking-wider uppercase text-center block hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
                   >
                     Limpiar filtros
                   </Link>
@@ -180,17 +180,17 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
             {hasFilters && (
               <div className="flex flex-wrap gap-2 mb-6">
                 {searchParams.operacion && (
-                  <span className="font-sans bg-[#1A1A2E] text-white text-xs px-3 py-1.5 capitalize">
+                  <span className="font-sans bg-[#0A0A0A] text-white text-xs px-3 py-1.5 capitalize">
                     {searchParams.operacion}
                   </span>
                 )}
                 {searchParams.tipo && (
-                  <span className="font-sans bg-[#1A1A2E] text-white text-xs px-3 py-1.5 capitalize">
+                  <span className="font-sans bg-[#0A0A0A] text-white text-xs px-3 py-1.5 capitalize">
                     {searchParams.tipo}
                   </span>
                 )}
                 {searchParams.ciudad && (
-                  <span className="font-sans bg-[#1A1A2E] text-white text-xs px-3 py-1.5">
+                  <span className="font-sans bg-[#0A0A0A] text-white text-xs px-3 py-1.5">
                     {searchParams.ciudad}
                   </span>
                 )}
@@ -215,7 +215,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                     {page > 1 && (
                       <Link
                         href={buildUrl({ page: String(page - 1) })}
-                        className="font-sans px-5 py-2.5 border border-[#1A1A2E] text-[#1A1A2E] text-sm tracking-wider uppercase hover:bg-[#1A1A2E] hover:text-white transition-colors"
+                        className="font-sans px-5 py-2.5 border border-[#0A0A0A] text-[#0A0A0A] text-sm tracking-wider uppercase hover:bg-[#0A0A0A] hover:text-white transition-colors"
                       >
                         ← Anterior
                       </Link>
@@ -226,8 +226,8 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                         href={buildUrl({ page: String(p) })}
                         className={`font-sans w-10 h-10 flex items-center justify-center text-sm transition-colors ${
                           p === page
-                            ? 'bg-[#1A1A2E] text-white'
-                            : 'border border-[#E8E0D0] text-[#8B8B9E] hover:border-[#D4AF37] hover:text-[#D4AF37]'
+                            ? 'bg-[#0A0A0A] text-white'
+                            : 'border border-[#E8E0D0] text-[#8B8B9E] hover:border-[#C9A84C] hover:text-[#C9A84C]'
                         }`}
                       >
                         {p}
@@ -236,7 +236,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                     {page < pages && (
                       <Link
                         href={buildUrl({ page: String(page + 1) })}
-                        className="font-sans px-5 py-2.5 border border-[#1A1A2E] text-[#1A1A2E] text-sm tracking-wider uppercase hover:bg-[#1A1A2E] hover:text-white transition-colors"
+                        className="font-sans px-5 py-2.5 border border-[#0A0A0A] text-[#0A0A0A] text-sm tracking-wider uppercase hover:bg-[#0A0A0A] hover:text-white transition-colors"
                       >
                         Siguiente →
                       </Link>
@@ -246,8 +246,8 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
               </>
             ) : (
               <div className="text-center py-24">
-                <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-8" />
-                <h3 className="font-display text-[#1A1A2E] text-3xl font-light mb-4">
+                <div className="w-12 h-0.5 bg-[#C9A84C] mx-auto mb-8" />
+                <h3 className="font-display text-[#0A0A0A] text-3xl font-light mb-4">
                   Sin resultados
                 </h3>
                 <p className="font-sans text-[#8B8B9E] text-sm mb-8 max-w-sm mx-auto">
@@ -255,7 +255,7 @@ export default async function PropiedadesPage({ searchParams }: { searchParams: 
                 </p>
                 <Link
                   href="/propiedades"
-                  className="font-sans inline-block bg-[#1A1A2E] text-white px-8 py-3.5 text-sm font-semibold tracking-widest uppercase hover:bg-[#D4AF37] hover:text-[#1A1A2E] transition-all duration-300"
+                  className="font-sans inline-block bg-[#0A0A0A] text-white px-8 py-3.5 text-sm font-semibold tracking-widest uppercase hover:bg-[#C9A84C] hover:text-[#0A0A0A] transition-all duration-300"
                 >
                   Ver todas las propiedades
                 </Link>
