@@ -8,7 +8,7 @@ export default function Hero() {
     <section className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
       {/* Background */}
       <Image
-        src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1920&q=90"
+        src="https://images.unsplash.com/photo-1597006592081-a8d73a5fb6de?w=1920&q=90"
         alt="Meraki Real Estate"
         fill
         className="object-cover"
@@ -18,7 +18,7 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.75) 100%)',
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.8) 100%)',
         }}
       />
 

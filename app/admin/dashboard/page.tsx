@@ -85,7 +85,7 @@ export default async function DashboardPage() {
             {propiedades.length === 0 ? (
               <div className="text-center py-20">
                 <div className="font-display text-[#C9A84C] text-6xl mb-4 opacity-30">M</div>
-                <p className="font-sans text-[#8B8B9E] text-sm mb-6">No hay propiedades aún</p>
+                <p className="font-sans italic text-[#8B8B9E] text-sm mb-6">No hay propiedades aún</p>
                 <Link
                   href="/admin/propiedades/nueva"
                   className="font-sans inline-block bg-[#0A0A0A] text-white text-sm px-6 py-3 tracking-widest uppercase hover:bg-[#C9A84C] hover:text-[#0A0A0A] transition-all duration-300"
