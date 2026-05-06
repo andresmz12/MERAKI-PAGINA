@@ -1,20 +1,17 @@
-import Image from 'next/image'
-
 const CIUDADES = ['Medellín', 'Bogotá', 'Cali', 'Cartagena', 'Santa Marta', 'Barranquilla']
 const TIPOS = ['apartamento', 'casa', 'lote', 'local', 'finca', 'oficina']
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
-      {/* Background */}
-      <Image
-        src="https://images.unsplash.com/photo-1597006592081-a8d73a5fb6de?w=1920&q=90"
-        alt="Meraki Real Estate"
-        fill
-        className="object-cover"
-        priority
-        sizes="100vw"
-      />
+    <section
+      className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: `url('https://images.unsplash.com/photo-1597006592081-a8d73a5fb6de?w=1920&q=90')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Overlay */}
       <div
         className="absolute inset-0"
         style={{
