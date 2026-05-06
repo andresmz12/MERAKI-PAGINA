@@ -5,16 +5,16 @@ export default function Hero() {
   return (
     <section
       className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #1C1508 35%, #2A1E0A 65%, #0A0A0A 100%)' }}
+      style={{
+        backgroundImage: "url('/hero-bg.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+      }}
     >
-      {/* Dot pattern */}
+      {/* Overlay */}
       <div
         className="absolute inset-0"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #C9A84C 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-          opacity: 0.05,
-        }}
+        style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.7) 100%)' }}
       />
 
       {/* Content */}
